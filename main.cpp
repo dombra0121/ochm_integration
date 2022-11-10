@@ -16,13 +16,13 @@ double integration(double a, double b, int n, char *wayToCalculate, double *addr
     double x;
 
     if (wayToCalculate == "LeftRectangle") {
-        //n сложений, одно умножение: скорость (+), точность (-)
+        //n СЃР»РѕР¶РµРЅРёР№, РѕРґРЅРѕ СѓРјРЅРѕР¶РµРЅРёРµ: СЃРєРѕСЂРѕСЃС‚СЊ (+), С‚РѕС‡РЅРѕСЃС‚СЊ (-)
         for (i = 0, x = a; i <= n - 1; i++, x += h) {
             *address += f(x);
         }
         *address *= h;
 
-        //n сложений, n умножений: скорость (-), точность (+)
+        //n СЃР»РѕР¶РµРЅРёР№, n СѓРјРЅРѕР¶РµРЅРёР№: СЃРєРѕСЂРѕСЃС‚СЊ (-), С‚РѕС‡РЅРѕСЃС‚СЊ (+)
         //for (i = 0, x = a; i <= n - 1; i++, x += h) {
         //    *address += h * f(x);
         //}
@@ -68,19 +68,19 @@ int main() {
     double result;
 
     errorCode = integration(a, b, n, "LeftRectangle", &result);
-    if (errorCode == 0) printf("Левые прямоугольники: %.4f\n", result);
+    if (errorCode == 0) printf("Р›РµРІС‹Рµ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРё: %.4f\n", result);
 
     errorCode = integration(a, b, n, "MiddleRectangle", &result);
-    if (errorCode == 0) printf("Средние прямоугольники: %.4f\n", result);
+    if (errorCode == 0) printf("РЎСЂРµРґРЅРёРµ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРё: %.4f\n", result);
 
     errorCode = integration(a, b, n, "RightRectangle", &result);
-    if (errorCode == 0) printf("Правые прямоугольники: %.4f\n", result);
+    if (errorCode == 0) printf("РџСЂР°РІС‹Рµ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРё: %.4f\n", result);
 
     errorCode = integration(a, b, n, "Trapezoid", &result);
-    if (errorCode == 0) printf("Трапеции: %.4f\n", result);
+    if (errorCode == 0) printf("РўСЂР°РїРµС†РёРё: %.4f\n", result);
 
     errorCode = integration(a, b, 2 * n, "Parabola", &result);
-    if (errorCode == 0) printf("Параболы: %.4f\n", result);
+    if (errorCode == 0) printf("РџР°СЂР°Р±РѕР»С‹: %.4f\n", result);
 
     return 0;
 }
